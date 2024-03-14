@@ -55,6 +55,35 @@ func OpenDBS(dbs []string) (*sql.DB, string, error) {
 	return db, dbtypex, nil
 }
 
+func OpenDB(dbs string) (*sql.DB, string, error) {
+	var db *sql.DB
+	var err error
+	dbtype, _, _, host, _, _ := ExtractDBparameter(dbs)
+	if dbtype == "" {
+		return nil, "", errors.New("host uri error")
+	}
+	dbx := dbs
+	switch dbtype {
+	case "mysql":
+		ex := strings.SplitN(dbs, "://", 2)
+		dbx = ex[1]
+	}
+	db, err = sql.Open(dbtype, dbx)
+	if err != nil {
+		log.Printf("Error: Fail to open db %s:%s - %v\n", dbtype, host, err)
+		return nil, "", err
+	}
+
+	err = db.Ping()
+	if err != nil {
+		log.Printf("Error: Fail to ping db %s:%s - %v\n", dbtype, host, err)
+		db.Close()
+		return nil, "", err
+	}
+	log.Printf("Log: Connect to db %s:%s\n", dbtype, host)
+	return db, dbtype, nil
+}
+
 func Q(dbtype, query string) (output string) {
 	output = ""
 	count := 1
