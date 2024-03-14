@@ -14,7 +14,15 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func OpenDBS(dbs []string) (*sql.DB, string, error) {
+type (
+	DB4ruts struct {
+		db     *sql.DB
+		dbtype string
+		host   string
+	}
+)
+
+func OpenDBS(dbs []string) (*DB4ruts, error) {
 	dbN := utils.RandomArrayString(dbs)
 	dbConnect := false
 	dbtypex := ""
@@ -23,7 +31,7 @@ func OpenDBS(dbs []string) (*sql.DB, string, error) {
 	for i := range dbN {
 		dbtype, _, _, host, _, _ := ExtractDBparameter(dbN[i])
 		if dbtype == "" {
-			return nil, "", errors.New("host uri error")
+			return &DB4ruts{}, errors.New("host uri error")
 		}
 		dbx := dbN[i]
 		switch dbtype {
@@ -50,17 +58,21 @@ func OpenDBS(dbs []string) (*sql.DB, string, error) {
 	}
 	if !dbConnect {
 		log.Printf("Error: Cannot connect to all db\n")
-		return nil, "", errors.New("cannot connect to all db")
+		return &DB4ruts{}, errors.New("cannot connect to all db")
 	}
-	return db, dbtypex, nil
+
+	return &DB4ruts{
+		db:     db,
+		dbtype: dbtypex,
+	}, nil
 }
 
-func OpenDB(dbs string) (*sql.DB, string, error) {
+func OpenDB(dbs string) (*DB4ruts, error) {
 	var db *sql.DB
 	var err error
 	dbtype, _, _, host, _, _ := ExtractDBparameter(dbs)
 	if dbtype == "" {
-		return nil, "", errors.New("host uri error")
+		return &DB4ruts{}, errors.New("host uri error")
 	}
 	dbx := dbs
 	switch dbtype {
@@ -71,17 +83,46 @@ func OpenDB(dbs string) (*sql.DB, string, error) {
 	db, err = sql.Open(dbtype, dbx)
 	if err != nil {
 		log.Printf("Error: Fail to open db %s:%s - %v\n", dbtype, host, err)
-		return nil, "", err
+		return &DB4ruts{}, err
 	}
 
 	err = db.Ping()
 	if err != nil {
 		log.Printf("Error: Fail to ping db %s:%s - %v\n", dbtype, host, err)
 		db.Close()
-		return nil, "", err
+		return &DB4ruts{}, err
 	}
 	log.Printf("Log: Connect to db %s:%s\n", dbtype, host)
-	return db, dbtype, nil
+	return &DB4ruts{
+		db:     db,
+		dbtype: dbtype,
+	}, nil
+}
+
+func (db *DB4ruts) DBType() string {
+	return db.dbtype
+}
+
+func (db *DB4ruts) DB() *sql.DB {
+	return db.db
+}
+
+func (db *DB4ruts) Host() string {
+	return db.host
+}
+
+func (db *DB4ruts) Query(query string, arg ...interface{}) (*sql.Rows, error) {
+	rows, err := db.db.Query(Q(db.dbtype, query), arg...)
+	return rows, err
+}
+
+func (db *DB4ruts) Exec(query string, arg ...interface{}) (sql.Result, error) {
+	result, err := db.db.Exec(Q(db.dbtype, query), arg...)
+	return result, err
+}
+
+func (db *DB4ruts) Close() error {
+	return db.db.Close()
 }
 
 func Q(dbtype, query string) (output string) {
