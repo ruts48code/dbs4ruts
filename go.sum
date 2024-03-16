@@ -22,8 +22,8 @@ github.com/pkg/browser v0.0.0-20180916011732-0a3d74bf9ce4/go.mod h1:4OwLy04Bl9Ef
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/ruts48code/random4ruts v0.0.0-20240313083834-115f46b90008 h1:1onihqkMuIQz27S/EsdT9gIjGSHuU2Etg5RKZY3/rYI=
 github.com/ruts48code/random4ruts v0.0.0-20240313083834-115f46b90008/go.mod h1:6D/Vr/ytkNgvU7HVu1/+tQtpDXJvdMXxuiDTiTqtJ7o=
-github.com/ruts48code/utils4ruts v0.0.0-20240316032833-0bc5dc2a0f91 h1:T+ijSETGvUcqcVnvrVqbPEB81CzFTNU/79InSTQ0HdA=
-github.com/ruts48code/utils4ruts v0.0.0-20240316032833-0bc5dc2a0f91/go.mod h1:iCMzNjAlSb8moySfBJv46DaZKOL5L6TC3b8FqrFmawc=
+github.com/ruts48code/utils4ruts v0.0.0-20240316042906-e0c87a587b2b h1:nX/VmkIseYvbnZRTOfdd0F7sN1s3UP/nuPgEdT4Nngo=
+github.com/ruts48code/utils4ruts v0.0.0-20240316042906-e0c87a587b2b/go.mod h1:iCMzNjAlSb8moySfBJv46DaZKOL5L6TC3b8FqrFmawc=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
