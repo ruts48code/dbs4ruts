@@ -41,23 +41,22 @@ func OpenDBS(dbs []string) (*DB4ruts, error) {
 		}
 		db, err = sql.Open(dbtype, dbx)
 		if err != nil {
-			log.Printf("Error: Fail to open db %s:%s - %v\n", dbtype, host, err)
+			log.Printf("Error: dbs4ruts-OpenDBS 1 - Fail to open db %s:%s - %v\n", dbtype, host, err)
 			continue
 		}
 
 		err = db.Ping()
 		if err != nil {
-			log.Printf("Error: Fail to ping db %s:%s - %v\n", dbtype, host, err)
+			log.Printf("Error: dbs4ruts-OpenDBS 2 - Fail to ping db %s:%s - %v\n", dbtype, host, err)
 			db.Close()
 			continue
 		}
-		log.Printf("Log: Connect to db %s:%s\n", dbtype, host)
 		dbConnect = true
 		dbtypex = dbtype
 		break
 	}
 	if !dbConnect {
-		log.Printf("Error: Cannot connect to all db\n")
+		log.Printf("Error: dbs4ruts-OpenDBS 3 - Cannot connect to all db\n")
 		return &DB4ruts{}, errors.New("cannot connect to all db")
 	}
 
@@ -82,17 +81,16 @@ func OpenDB(dbs string) (*DB4ruts, error) {
 	}
 	db, err = sql.Open(dbtype, dbx)
 	if err != nil {
-		log.Printf("Error: Fail to open db %s:%s - %v\n", dbtype, host, err)
+		log.Printf("Error: dbs4ruts-OpenDB 1 - Fail to open db %s:%s - %v\n", dbtype, host, err)
 		return &DB4ruts{}, err
 	}
 
 	err = db.Ping()
 	if err != nil {
-		log.Printf("Error: Fail to ping db %s:%s - %v\n", dbtype, host, err)
+		log.Printf("Error: dbs4ruts-OpenDB 2 - Fail to ping db %s:%s - %v\n", dbtype, host, err)
 		db.Close()
 		return &DB4ruts{}, err
 	}
-	log.Printf("Log: Connect to db %s:%s\n", dbtype, host)
 	return &DB4ruts{
 		db:     db,
 		dbtype: dbtype,
