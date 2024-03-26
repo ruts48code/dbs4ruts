@@ -41,8 +41,8 @@ github.com/pkg/browser v0.0.0-20180916011732-0a3d74bf9ce4/go.mod h1:4OwLy04Bl9Ef
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/ruts48code/random4ruts v0.0.0-20240318160157-d85939eda018 h1:cCIme0V8YHm0FWaJH+dFoYaZojlIIY+hQeupo3QDFOU=
 github.com/ruts48code/random4ruts v0.0.0-20240318160157-d85939eda018/go.mod h1:6D/Vr/ytkNgvU7HVu1/+tQtpDXJvdMXxuiDTiTqtJ7o=
-github.com/ruts48code/utils4ruts v0.0.0-20240323054002-060db92a232a h1:ZXkE3PWpigR3xk951MBlT+fRiQ1bJx2rTJ3+fGomIEs=
-github.com/ruts48code/utils4ruts v0.0.0-20240323054002-060db92a232a/go.mod h1:sS4+dJyJlVC9l0vSek6Ej4ot68hPvk2kjU/16PSR22k=
+github.com/ruts48code/utils4ruts v0.0.0-20240326023658-0e67652f2a4f h1:fnlBFUxuf9/ixFufuwezH1HrbnHiTRVX5LixUB1+lEc=
+github.com/ruts48code/utils4ruts v0.0.0-20240326023658-0e67652f2a4f/go.mod h1:sS4+dJyJlVC9l0vSek6Ej4ot68hPvk2kjU/16PSR22k=
 github.com/sergi/go-diff v1.0.0 h1:Kpca3qRNrduNnOQeazBd0ysaKrUJiIuISHxogkT9RPQ=
 github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAmXWZgo=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=

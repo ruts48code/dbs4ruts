@@ -6,7 +6,7 @@ require (
 	github.com/denisenkom/go-mssqldb v0.12.3
 	github.com/go-sql-driver/mysql v1.8.0
 	github.com/lib/pq v1.10.9
-	github.com/ruts48code/utils4ruts v0.0.0-20240323054002-060db92a232a
+	github.com/ruts48code/utils4ruts v0.0.0-20240326023658-0e67652f2a4f
 )
 
 require (
