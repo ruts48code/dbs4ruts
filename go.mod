@@ -4,9 +4,9 @@ go 1.22.1
 
 require (
 	github.com/denisenkom/go-mssqldb v0.12.3
-	github.com/go-sql-driver/mysql v1.8.0
+	github.com/go-sql-driver/mysql v1.8.1
 	github.com/lib/pq v1.10.9
-	github.com/ruts48code/utils4ruts v0.0.0-20240326023658-0e67652f2a4f
+	github.com/ruts48code/utils4ruts v0.0.0-20240327014149-65e8d90f196f
 )
 
 require (
@@ -16,7 +16,7 @@ require (
 	github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9 // indirect
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
-	github.com/hashicorp/hcl/v2 v2.20.0 // indirect
+	github.com/hashicorp/hcl/v2 v2.20.1 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
 	github.com/ruts48code/random4ruts v0.0.0-20240318160157-d85939eda018 // indirect
 	github.com/zclconf/go-cty v1.14.4 // indirect
